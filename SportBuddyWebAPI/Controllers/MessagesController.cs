@@ -24,6 +24,27 @@ namespace SportBuddyWebAPI.Controllers
             }
             return BadRequest(result.Message);
         }
+
+        [HttpGet("GetListMessagesByActivityId")]
+        public IActionResult GetListMessagesByActivityId(int activityId)
+        {
+            var result = _messageService.GetListByActivityId(activityId);
+            if (result.Success)
+            {
+                return Ok(result.Data);
+            }
+            return BadRequest(result.Message);
+        }
+        [HttpGet("GetListMessagesByUserId")]
+        public IActionResult GetListMessagesByUserId(int userId)
+        {
+            var result = _messageService.GetListByUserId(userId);
+            if (result.Success)
+            {
+                return Ok(result.Data);
+            }
+            return BadRequest(result.Message);
+        }
         [HttpPost("updateMessage")]
         public IActionResult UpdateProduct(Message message)
         {

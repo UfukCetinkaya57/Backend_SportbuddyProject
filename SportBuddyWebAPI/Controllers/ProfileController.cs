@@ -10,14 +10,17 @@ namespace SportBuddyWebAPI.Controllers
     public class ProfileController : ControllerBase
     {
         private IProfileService _profileService;
-        public ProfileController(IProfileService profileService)
+        private IUserService _userService;
+
+        public ProfileController(IProfileService profileService, IUserService userService)
         {
             _profileService = profileService;
+            _userService = userService;
         }
         [HttpGet("getProfileById")]
         public IActionResult GetProfileById(int userId)
         {
-            var result = _profileService.GetProfileById(userId);
+            var result = _userService.GetById(userId);
             if (result.Success)
             {
                 return Ok(result.Data);

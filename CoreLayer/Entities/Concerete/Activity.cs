@@ -16,6 +16,7 @@ namespace CoreLayer.Entities.Concerete
         public string ActivityMap { get; set; }
         public string ActivityDate { get; set; }
         public int NumberOfUsersRequestedForTheEvent { get; set; } = 0;
+
         //Kullanıcıların Listeleri Olmalı
         public string? UsersIdList { get; set; } = null;
         public string? JoinTheActivitesList { get; set; } = null;

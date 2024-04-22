@@ -29,14 +29,14 @@ namespace BusinessLayer.Concrete
         {
             List<int> MessagesIdList = new List<int>();
             
-            User sendUser = _userDal.Get(p => p.Id == message.MessageSenderUserId);
-            User receiveUser = _userDal.Get(p => p.Id == message.MessageReceiverUserId);
+       //     User sendUser = _userDal.Get(p => p.Id == message.MessageSenderUsersIdList);
+         //   User receiveUser = _userDal.Get(p => p.Id == message.MessageReceiverActivityId);
             
             _messageDal.Add(message);
 
            // var getMessage = _messageDal.Get(m => m.MessageId == message.MessageId);
 
-            if (sendUser.MessagesIdList != null)
+     /*       if (sendUser.MessagesIdList != null)
             {
                 MessagesIdList = JsonConvert.DeserializeObject<List<int>>(sendUser.MessagesIdList);
                 MessagesIdList.Add(message.MessageId);
@@ -62,7 +62,7 @@ namespace BusinessLayer.Concrete
 
             _userDal.Update(receiveUser);
             _userDal.Update(sendUser);
-
+     */
             ///UPDATE KISIMLARI ///
 
             return new SuccessResult(Messages.ProductAdded);
@@ -84,6 +84,27 @@ namespace BusinessLayer.Concrete
         public IDataResult<List<Message>> GetList()
         {
             return new IResult<List<Message>>(_messageDal.GetList().ToList());
+        }
+
+        public IDataResult<Message> GetById(int Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IResult Add(Message product)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IDataResult<List<Message>> GetListByActivityId(int activityId)
+        {
+            return new IResult<List<Message>>(_messageDal
+                            .GetList(p => p.ActivityId == activityId).ToList());
+        }
+        public IDataResult<List<Message>> GetListByUserId(int userId)
+        {
+            return new IResult<List<Message>>(_messageDal
+                            .GetList(p => p.UserId == userId).ToList());
         }
     }
 }

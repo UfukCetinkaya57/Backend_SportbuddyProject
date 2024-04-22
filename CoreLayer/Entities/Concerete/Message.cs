@@ -9,9 +9,10 @@ namespace CoreLayer.Entities.Concerete
     public class Message : IEntity
     {
         public int MessageId { get; set; }
-        public int MessageSenderUserId { get; set; }
-        public int MessageReceiverUserId { get; set; }
-        public string MessageContent { get; set; }
+        public int ActivityId { get; set; }
+        public int UserId { get; set; }
+      //  public string? MessageSenderUsersIdList { get; set; } = null; 
+        public string? MessageContent { get; set; } = null; 
         public string MessageSendDate { get; set; }
     }
 }

@@ -12,6 +12,9 @@ namespace BusinessLayer.Abstract
     {
         IResult AddMessage(Message message);
         IDataResult<Message> GetById(int Id);
+        IDataResult<List<Message>> GetListByActivityId(int activityId);
+        IDataResult<List<Message>> GetListByUserId(int userId);
+
         IDataResult<List<Message>> GetList();
         IResult Add(Message product);
         IResult Update(Message product);

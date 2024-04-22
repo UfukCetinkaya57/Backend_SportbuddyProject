@@ -13,9 +13,10 @@ namespace BusinessLayer.Abstract
     public interface IActivityService
     {
         IDataResult<Activity> GetActivityById(int eventId);
-        IResult AddActivity(Activity activity);
+        IResult AddActivity(Activity activity, int userId);
         IDataResult<List<Activity>> GetList();
         IResult UpdateActivity(Activity user);
+        IResult JoinTheActivity(int activityId, int userId);
         IResult DeleteActivity(int id);
 
     }

@@ -15,10 +15,23 @@ namespace SportBuddyWebAPI.Controllers
         {
             _activityService = activityService;
         }
+
+
         [HttpPost("AddActivity")]
-        public IActionResult AddActivity(Activity activity)
+        public IActionResult AddActivity(Activity activity, int userId)
         {
-            var result = _activityService.AddActivity(activity);
+            var result = _activityService.AddActivity(activity, userId);
+            if (result.Success)
+            {
+                return Ok(result.Message);
+            }
+            return BadRequest(result.Message);
+        }
+
+        [HttpPost("JoinTheActivity")]
+        public IActionResult JoinTheActivity(int activityId, int userId)
+        {
+            var result = _activityService.JoinTheActivity(activityId, userId);
             if (result.Success)
             {
                 return Ok(result.Message);
