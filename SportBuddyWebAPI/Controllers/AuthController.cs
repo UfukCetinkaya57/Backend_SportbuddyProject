@@ -10,10 +10,13 @@ namespace SportBuddyWebAPI.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
+        private IUserService _userService;
+
         private IAuthService _authService;
-        public AuthController(IAuthService authService)
+        public AuthController(IAuthService authService, IUserService userService)
         {
             _authService = authService;
+            _userService = userService;
         }
 
         [HttpPost("register")]
@@ -52,7 +55,18 @@ namespace SportBuddyWebAPI.Controllers
 
             return BadRequest(result.Message);
         }
-
+        [HttpGet("getUserById")]
+        public IActionResult GetUserById(int userId)
+        {
+ 
+            var result = _userService.GetById(userId);
+            if (result.Success)
+            {
+                return Ok(result.Data);
+            }
+            return BadRequest(result.Message);
+         
+        }
 
 
     }
