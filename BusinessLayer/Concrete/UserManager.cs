@@ -45,7 +45,7 @@ namespace BusinessLayer.Concrete
         }
         public IResult UpdateUser(User user)
         {
-            _userDal.Add(user);
+            _userDal.Update(user);
             return new SuccessResult(Messages.UserUpdated);
         }
 

@@ -13,5 +13,7 @@ namespace EntityLayer.Dtos
         public string Passwd { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string Roles { get; set; }
+        public string PhotoBase64 { get; set; }
     }
 }

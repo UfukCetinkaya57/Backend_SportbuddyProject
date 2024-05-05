@@ -3,6 +3,7 @@ using BusinessLayer.Constants;
 using CoreLayer.Entities.Concerete;
 using CoreLayer.Utilities.Results;
 using DataAccessLayer.Abstract;
+using EntityLayer.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,26 @@ namespace BusinessLayer.Concrete
         public IResult Add(Product product)
         {
             _productDal.Add(product);
+
+          byte[] photoBytes = Convert.FromBase64String(product.PhotoBase64);
+
+            // Kullanıcının fotoğrafını belirlediğiniz klasöre kaydet
+            string photoFileName = product.Id + ".jpg"; // Fotoğraf dosya adını oluştur
+                                                        //LİNKLERE DOĞRU BAKACAKSIN EN SON İŞLEMLERDE
+            var userDirectory = Path.Combine("C:\\Users\\Ufuk\\Desktop\\SportBuddyProject\\SportBuddyWebAPI\\Upload\\Photos\\" + product.Id + "\\ProductPhoto");
+            // Kullanıcının alt klasörünün var olup olmadığını kontrol edin; yoksa oluşturun
+            if (!Directory.Exists(userDirectory))
+            {
+                // Klasörü oluşturun
+                Directory.CreateDirectory(userDirectory);
+            }
+            // Dosyanın kaydedileceği tam yolu oluşturun
+            var photoPath = Path.Combine(userDirectory, photoFileName);
+            System.IO.File.WriteAllBytes(photoPath, photoBytes); // Byte dizisini dosyaya yaz
+
+            product.PhotoPath = photoPath;
+            Update(product);
+         
             return new SuccessResult(Messages.ProductAdded);
         }
         public IResult Delete(int id)

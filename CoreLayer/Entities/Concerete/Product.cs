@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,5 +16,10 @@ namespace CoreLayer.Entities.Concerete
         public short UnitsInStock { get; set; }
         public short QuantityPerUnit { get; set; }
         public decimal Price { get; set; }
+
+        [NotMapped]
+        public string PhotoBase64 { get; set; } = null;
+
+        public string? PhotoPath { get; set; } = null;
     }
 }
