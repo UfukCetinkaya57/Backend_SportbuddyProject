@@ -24,24 +24,28 @@ namespace BusinessLayer.Concrete
         {
             _productDal.Add(product);
 
-          byte[] photoBytes = Convert.FromBase64String(product.PhotoBase64);
-
-            // Kullanıcının fotoğrafını belirlediğiniz klasöre kaydet
-            string photoFileName = product.Id + ".jpg"; // Fotoğraf dosya adını oluştur
-                                                        //LİNKLERE DOĞRU BAKACAKSIN EN SON İŞLEMLERDE
-            var userDirectory = Path.Combine("C:\\Users\\Ufuk\\Desktop\\SportBuddyProject\\SportBuddyWebAPI\\Upload\\Photos\\" + product.Id + "\\ProductPhoto");
-            // Kullanıcının alt klasörünün var olup olmadığını kontrol edin; yoksa oluşturun
-            if (!Directory.Exists(userDirectory))
+            if(product.PhotoBase64 != null && product.PhotoBase64 != "string")
             {
-                // Klasörü oluşturun
-                Directory.CreateDirectory(userDirectory);
-            }
-            // Dosyanın kaydedileceği tam yolu oluşturun
-            var photoPath = Path.Combine(userDirectory, photoFileName);
-            System.IO.File.WriteAllBytes(photoPath, photoBytes); // Byte dizisini dosyaya yaz
+                byte[] photoBytes = Convert.FromBase64String(product.PhotoBase64);
 
-            product.PhotoPath = photoPath;
-            Update(product);
+                // Kullanıcının fotoğrafını belirlediğiniz klasöre kaydet
+                string photoFileName = product.Id + ".jpg"; // Fotoğraf dosya adını oluştur
+                                                            //LİNKLERE DOĞRU BAKACAKSIN EN SON İŞLEMLERDE
+                var userDirectory = Path.Combine("C:\\Users\\Ufuk\\Desktop\\SportBuddyProject\\SportBuddyWebAPI\\Upload\\Photos\\" + product.Id + "\\ProductPhoto");
+                // Kullanıcının alt klasörünün var olup olmadığını kontrol edin; yoksa oluşturun
+                if (!Directory.Exists(userDirectory))
+                {
+                    // Klasörü oluşturun
+                    Directory.CreateDirectory(userDirectory);
+                }
+                // Dosyanın kaydedileceği tam yolu oluşturun
+                var photoPath = Path.Combine(userDirectory, photoFileName);
+                System.IO.File.WriteAllBytes(photoPath, photoBytes); // Byte dizisini dosyaya yaz
+
+                product.PhotoPath = photoPath;
+                Update(product);
+            }
+          
          
             return new SuccessResult(Messages.ProductAdded);
         }

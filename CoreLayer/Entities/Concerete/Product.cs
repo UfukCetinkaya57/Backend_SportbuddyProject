@@ -16,6 +16,7 @@ namespace CoreLayer.Entities.Concerete
         public short UnitsInStock { get; set; }
         public short QuantityPerUnit { get; set; }
         public decimal Price { get; set; }
+        public string IsSale { get; set; }
 
         [NotMapped]
         public string PhotoBase64 { get; set; } = null;
