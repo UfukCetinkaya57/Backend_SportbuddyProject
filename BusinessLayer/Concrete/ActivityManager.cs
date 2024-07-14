@@ -18,8 +18,10 @@ namespace BusinessLayer.Concrete
     public class ActivityManager : IActivityService
     {
         IActivityDal _activityDal;
-        public ActivityManager(IActivityDal eventDal)
+        IMessageDal _messageDal;
+        public ActivityManager(IActivityDal eventDal, IMessageDal messageDal)
         {
+            _messageDal = messageDal;
             _activityDal = eventDal;
         }
 
@@ -134,7 +136,17 @@ namespace BusinessLayer.Concrete
 
         public IResult DeleteActivity(int id)
         {
+            
             Activity activity = _activityDal.Get(p => p.ActivityId == id);
+            var messsages = new List<Message>();
+
+            messsages = _messageDal.GetList(m => m.ActivityId == id).ToList();
+
+            foreach (var message in messsages)
+            {
+
+                _messageDal.Delete(message);
+            }
             _activityDal.Delete(activity);
             return new SuccessResult(Messages.ProductDeleted);
         }

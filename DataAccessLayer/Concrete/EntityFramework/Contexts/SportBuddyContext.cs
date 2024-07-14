@@ -12,11 +12,11 @@ namespace DataAccessLayer.Concrete.EntityFramework.Contexts
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(connectionString: @"Data Source=DESKTOP-8T9IQ2C;Initial Catalog=SportBuddyDB;Integrated Security=True;TrustServerCertificate=true");
+            optionsBuilder.UseSqlServer(connectionString: @"Data Source=DESKTOP-JVVF92N\SQLEXPRESS;Initial Catalog=SportBuddyDB;Integrated Security=True;TrustServerCertificate=true");
         }
-  
-       // public DbSet<Product> Products { get; set; }
-       // public DbSet<ProductCategory> ProductCategories { get; set; }
+
+        // public DbSet<Product> Products { get; set; }
+        // public DbSet<ProductCategory> ProductCategories { get; set; }
 
         public DbSet<User> Users { get; set; }
         public DbSet<OperationClaim> OperationClaims { get; set; }

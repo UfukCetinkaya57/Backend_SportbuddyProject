@@ -14,6 +14,8 @@ namespace EntityLayer.Dtos
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Roles { get; set; }
-        public string PhotoBase64 { get; set; }
+        public string? PhotoBase64 { get; set; } = null;
+        public string? Address { get; set; } = null;
+        public string? MobilePhone { get; set; } = null;
     }
 }

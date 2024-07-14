@@ -30,9 +30,9 @@ namespace SportBuddyWebAPI.Controllers
             return BadRequest(result.Message);
         }
         [HttpPost("updateProduct")]
-        public IActionResult UpdateProduct(Product product)
+        public IActionResult UpdateProduct(List<Product> products)
         {
-            var result = _productService.Update(product);
+            var result = _productService.Update(products);
 
             if (result.Success)
             {
@@ -40,7 +40,6 @@ namespace SportBuddyWebAPI.Controllers
             }
             return BadRequest(result.Message);
         }
-
 
         [HttpPost("deleteProduct")]
 

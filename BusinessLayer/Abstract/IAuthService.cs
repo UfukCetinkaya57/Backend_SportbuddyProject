@@ -16,11 +16,7 @@ namespace BusinessLayer.Abstract
         IDataResult<User> Login(UserForLoginDto userForLoginDto);
         IDataResult<AccessToken> CreateAccessToken(User user);
         IResult UserExists(string Email);
-       /* 
-        IResult Update(User user);
-
-        IResult Delete(int id);
-       */
+       
 
     }
 }

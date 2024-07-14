@@ -19,7 +19,7 @@ namespace BusinessLayer.Abstract
         IDataResult<List<Product>> GetListByUnitsInStock(int UnitsInStock);
         IDataResult<List<Product>> GetListByPriceRange(int price1, int price2);
         IResult Add(Product product);
-        IResult Update(Product product);
+        IResult Update(List<Product> product);
         IResult Delete(int id);
 
 

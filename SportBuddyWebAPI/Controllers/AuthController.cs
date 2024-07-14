@@ -18,6 +18,43 @@ namespace SportBuddyWebAPI.Controllers
             _authService = authService;
             _userService = userService;
         }
+        [HttpDelete("DeleteUser")]
+        public IActionResult DeleteUser(User user)
+        {
+
+            var result = _userService.DeleteUser(user);
+            if (result.Success)
+            {
+                return Ok(result.Success);
+            }
+            return BadRequest(result.Message);
+
+        }
+        [HttpGet("getAllUsers")]
+        public IActionResult GetAllUsers()
+        {
+
+            var result = _userService.GetList();
+            if (result.Success)
+            {
+                return Ok(result.Data);
+            }
+            return BadRequest(result.Message);
+
+        }
+        [HttpPut("UpdateUser")]
+        public IActionResult UpdateUser(User user,  string password=null)
+        {
+    
+         
+            var result = _userService.UpdateUser(user, password);
+            if (result.Success)
+            {
+                return Ok(result.Message);
+            }
+            return BadRequest(result.Message);
+
+        }
 
         [HttpPost("register")]
         public IActionResult Register(UserForRegisterDto userForRegisterDto)

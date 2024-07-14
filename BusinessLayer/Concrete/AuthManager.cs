@@ -44,8 +44,11 @@ namespace BusinessLayer.Concrete
                 PasswdSalt = passwdSalt,
                 Roles= userForRegisterDto.Roles,
                 JoinTheActivitesIdList = null,
+                MobilePhone=userForRegisterDto.MobilePhone,
+                Address=userForRegisterDto.Address,
+                PhotoBase64= userForRegisterDto.PhotoBase64
 
-        //   Status = true
+                //   Status = true
             };
 
             // Base64 formatındaki fotoğrafı byte dizisine dönüştür
@@ -53,26 +56,10 @@ namespace BusinessLayer.Concrete
 
 
             _userService.Add(user);
+            
 
-            byte[] photoBytes = Convert.FromBase64String(userForRegisterDto.PhotoBase64);
-
-            // Kullanıcının fotoğrafını belirlediğiniz klasöre kaydet
-            string photoFileName = user.Id + ".jpg"; // Fotoğraf dosya adını oluştur
-                                                            //LİNKLERE DOĞRU BAKACAKSIN EN SON İŞLEMLERDE
-            var userDirectory = Path.Combine("C:\\Users\\Ufuk\\Desktop\\SportBuddyProject\\SportBuddyWebAPI\\Upload\\User\\Photos\\" + user.Id + "\\UserPhoto");
-            // Kullanıcının alt klasörünün var olup olmadığını kontrol edin; yoksa oluşturun
-            if (!Directory.Exists(userDirectory))
-            {
-                // Klasörü oluşturun
-                Directory.CreateDirectory(userDirectory);
-            }
-            // Dosyanın kaydedileceği tam yolu oluşturun
-            var photoPath = Path.Combine(userDirectory, photoFileName);
-            System.IO.File.WriteAllBytes(photoPath, photoBytes); // Byte dizisini dosyaya yaz
-
-            user.PhotoPath = photoPath;
-            _userService.UpdateUser(user);
-
+                _userService.UpdateUser(user);
+            
             return new IResult<User>(user, Messages.UserRegistered);
         }
         public IDataResult<User> Login(UserForLoginDto userForLoginDto)

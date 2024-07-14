@@ -59,6 +59,16 @@ namespace SportBuddyWebAPI.Controllers
             }
             return BadRequest(result.Message);
         }
-        
+        [HttpDelete("DeleteActivity")]
+        public IActionResult DeleteActivity(int activityId)
+        {
+            var result = _activityService.DeleteActivity(activityId);
+            if (result.Success)
+            {
+                return Ok(result.Message);
+            }
+            return BadRequest(result.Message);
+        }
+
     }
 }

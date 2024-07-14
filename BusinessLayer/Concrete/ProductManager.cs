@@ -24,14 +24,15 @@ namespace BusinessLayer.Concrete
         {
             _productDal.Add(product);
 
-            if(product.PhotoBase64 != null && product.PhotoBase64 != "string")
+            if (product.PhotoBase64 != null && product.PhotoBase64 != "string")
             {
                 byte[] photoBytes = Convert.FromBase64String(product.PhotoBase64);
 
                 // Kullanıcının fotoğrafını belirlediğiniz klasöre kaydet
                 string photoFileName = product.Id + ".jpg"; // Fotoğraf dosya adını oluştur
                                                             //LİNKLERE DOĞRU BAKACAKSIN EN SON İŞLEMLERDE
-                var userDirectory = Path.Combine("C:\\Users\\Ufuk\\Desktop\\SportBuddyProject\\SportBuddyWebAPI\\Upload\\Photos\\" + product.Id + "\\ProductPhoto");
+            
+                var userDirectory = Path.Combine("C:\\Users\\emirg\\OneDrive\\Masaüstü\\SportBuddyProject\\SportBuddyWebAPI\\Upload\\Photos\\" + product.Id + "\\ProductPhoto");
                 // Kullanıcının alt klasörünün var olup olmadığını kontrol edin; yoksa oluşturun
                 if (!Directory.Exists(userDirectory))
                 {
@@ -43,10 +44,12 @@ namespace BusinessLayer.Concrete
                 System.IO.File.WriteAllBytes(photoPath, photoBytes); // Byte dizisini dosyaya yaz
 
                 product.PhotoPath = photoPath;
-                Update(product);
+                List<Product> products = new List<Product>();
+                products.Add(product);
+                Update(products);
             }
-          
-         
+
+
             return new SuccessResult(Messages.ProductAdded);
         }
         public IResult Delete(int id)
@@ -56,15 +59,33 @@ namespace BusinessLayer.Concrete
             return new SuccessResult(Messages.ProductDeleted);
         }
 
-        public IResult Update(Product product)
+        public IResult Update(List<Product> products)
         {
-            _productDal.Update(product);
+            foreach (var product in products)
+            {
+                _productDal.Update(product);
+
+            }
             return new SuccessResult(Messages.ProductUpdated);
         }
 
         public IDataResult<List<Product>> GetList()
         {
-            return new IResult<List<Product>>(_productDal.GetList().ToList());
+            var allProduct = _productDal.GetList().ToList();
+
+            foreach (var product in allProduct)
+            {
+
+                string directoryPath = Path.Combine("C:\\Users\\emirg\\OneDrive\\Masaüstü\\SportBuddyProject\\SportBuddyWebAPI\\Upload\\Photos\\" + product.Id + "\\ProductPhoto");
+
+                if (Directory.Exists(directoryPath))
+                {
+                    byte[] photoBytes = File.ReadAllBytes(product.PhotoPath);
+                    product.PhotoBase64 = Convert.ToBase64String(photoBytes);
+                }
+
+            }
+            return new IResult<List<Product>>(allProduct);
         }
 
         public IDataResult<Product> GetById(int Id)

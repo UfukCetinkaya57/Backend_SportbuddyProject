@@ -58,9 +58,9 @@ namespace SportBuddyWebAPI.Controllers
         }
 
 
-        [HttpPost("deleteMessage")]
+        [HttpDelete("deleteMessage")]
 
-        public IActionResult Delete(int id)
+        public IActionResult DeleteMessage(int id)
         {
             var result = _messageService.Delete(id);
 

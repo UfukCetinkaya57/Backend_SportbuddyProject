@@ -16,8 +16,9 @@ namespace BusinessLayer.Abstract
         User GetByEmail(string Email);
         IDataResult<List<User>> GetList();
         IResult Add(User user);
-        IResult UpdateUser(User user);
-       // IResult Delete(int id);
+        IResult UpdateUser(User user, string password=null);
+        IResult DeleteUser(User user);
+        // IResult Delete(int id);
 
     }
 }

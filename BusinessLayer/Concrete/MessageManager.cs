@@ -27,11 +27,23 @@ namespace BusinessLayer.Concrete
 
         public IResult AddMessage(Message message)
         {
-            List<int> MessagesIdList = new List<int>();
-            
-       //     User sendUser = _userDal.Get(p => p.Id == message.MessageSenderUsersIdList);
-         //   User receiveUser = _userDal.Get(p => p.Id == message.MessageReceiverActivityId);
-            
+            List<int> messagesIdList = new List<int>();
+
+            //     User sendUser = _userDal.Get(p => p.Id == message.MessageSenderUsersIdList);
+            //   User receiveUser = _userDal.Get(p => p.Id == message.MessageReceiverActivityId);
+            //var user = _userDal.Get(u => u.Id == message.UserId);
+            //if (user.MessagesIdList != null)
+            //{
+            //    messagesIdList = JsonConvert.DeserializeObject<List<int>>(user.MessagesIdList);
+
+            //}
+            //else
+            //{
+            //    messagesIdList = new List<int>();
+            //}
+            //messagesIdList.Add(user.Id); 
+            //user.MessagesIdList = JsonConvert.SerializeObject(messagesIdList);
+
             _messageDal.Add(message);
 
            // var getMessage = _messageDal.Get(m => m.MessageId == message.MessageId);
