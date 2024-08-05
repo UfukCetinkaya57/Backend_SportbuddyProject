@@ -31,6 +31,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseStaticFiles();
+
 // CORS politikasýný uygula
 app.UseCors("AllowAnyOrigin");
 

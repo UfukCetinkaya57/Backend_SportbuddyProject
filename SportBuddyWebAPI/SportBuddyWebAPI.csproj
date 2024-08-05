@@ -20,7 +20,61 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Upload\" />
+    <Folder Include="wwwroot\Upload\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Upload\Photos\0\UserPhoto\0.jpg" />
+    <None Include="wwwroot\Upload\Photos\13\UserPhoto\13.jpg" />
+    <None Include="wwwroot\Upload\Photos\20\ProductPhoto\20.jpg" />
+    <None Include="wwwroot\Upload\Photos\21\ProductPhoto\21.jpg" />
+    <None Include="wwwroot\Upload\Photos\22\ProductPhoto\22.jpg" />
+    <None Include="wwwroot\Upload\Photos\23\ProductPhoto\23.jpg" />
+    <None Include="wwwroot\Upload\Photos\24\ProductPhoto\24.jpg" />
+    <None Include="wwwroot\Upload\Photos\25\ProductPhoto\25.jpg" />
+    <None Include="wwwroot\Upload\Photos\26\ProductPhoto\26.jpg" />
+    <None Include="wwwroot\Upload\Photos\27\ProductPhoto\27.jpg" />
+    <None Include="wwwroot\Upload\Photos\28\ProductPhoto\28.jpg" />
+    <None Include="wwwroot\Upload\Photos\29\ProductPhoto\29.jpg" />
+    <None Include="wwwroot\Upload\Photos\30\ProductPhoto\30.jpg" />
+    <None Include="wwwroot\Upload\Photos\31\UserPhoto\31.jpg" />
+    <None Include="wwwroot\Upload\Photos\32\UserPhoto\32.jpg" />
+    <None Include="wwwroot\Upload\Photos\33\UserPhoto\33.jpg" />
+    <None Include="wwwroot\Upload\Photos\34\ProductPhoto\34.jpg" />
+    <None Include="wwwroot\Upload\Photos\34\UserPhoto\34.jpg" />
+    <None Include="wwwroot\Upload\Photos\35\ProductPhoto\35.jpg" />
+    <None Include="wwwroot\Upload\Photos\36\ProductPhoto\36.jpg" />
+    <None Include="wwwroot\Upload\Photos\36\UserPhoto\36.jpg" />
+    <None Include="wwwroot\Upload\Photos\37\ProductPhoto\37.jpg" />
+    <None Include="wwwroot\Upload\Photos\37\UserPhoto\37.jpg" />
+    <None Include="wwwroot\Upload\Photos\38\ProductPhoto\38.jpg" />
+    <None Include="wwwroot\Upload\Photos\38\UserPhoto\38.jpg" />
+    <None Include="wwwroot\Upload\Photos\39\UserPhoto\39.jpg" />
+    <None Include="wwwroot\Upload\Photos\40\ProductPhoto\40.jpg" />
+    <None Include="wwwroot\Upload\Photos\41\ProductPhoto\41.jpg" />
+    <None Include="wwwroot\Upload\Photos\41\UserPhoto\41.jpg" />
+    <None Include="wwwroot\Upload\Photos\42\ProductPhoto\42.jpg" />
+    <None Include="wwwroot\Upload\Photos\42\UserPhoto\42.jpg" />
+    <None Include="wwwroot\Upload\Photos\43\ProductPhoto\43.jpg" />
+    <None Include="wwwroot\Upload\Photos\43\UserPhoto\43.jpg" />
+    <None Include="wwwroot\Upload\Photos\44\ProductPhoto\44.jpg" />
+    <None Include="wwwroot\Upload\Photos\44\UserPhoto\44.jpg" />
+    <None Include="wwwroot\Upload\Photos\45\ProductPhoto\45.jpg" />
+    <None Include="wwwroot\Upload\Photos\45\UserPhoto\45.jpg" />
+    <None Include="wwwroot\Upload\Photos\46\ProductPhoto\46.jpg" />
+    <None Include="wwwroot\Upload\Photos\46\UserPhoto\46.jpg" />
+    <None Include="wwwroot\Upload\Photos\47\ProductPhoto\47.jpg" />
+    <None Include="wwwroot\Upload\Photos\47\UserPhoto\47.jpg" />
+    <None Include="wwwroot\Upload\Photos\48\ProductPhoto\48.jpg" />
+    <None Include="wwwroot\Upload\Photos\48\UserPhoto\48.jpg" />
+    <None Include="wwwroot\Upload\Photos\49\ProductPhoto\49.jpg" />
+    <None Include="wwwroot\Upload\Photos\49\UserPhoto\49.jpg" />
+    <None Include="wwwroot\Upload\Photos\50\ProductPhoto\50.jpg" />
+    <None Include="wwwroot\Upload\Photos\53\UserPhoto\53.jpg" />
+    <None Include="wwwroot\Upload\Photos\54\UserPhoto\54.jpg" />
+    <None Include="wwwroot\Upload\Photos\55\UserPhoto\55.jpg" />
+    <None Include="wwwroot\Upload\Photos\56\UserPhoto\56.jpg" />
+    <None Include="wwwroot\Upload\Photos\57\UserPhoto\57.jpg" />
   </ItemGroup>
 
 </Project>
